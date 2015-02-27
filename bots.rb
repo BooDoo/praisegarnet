@@ -43,7 +43,8 @@ class MyBot < Ebooks::Bot
     scheduler.every '25m' do # Tweet something every 25 minutes
       user = get_user
       log "Let's try tweeting at #{user}..."
-      pictweet "@#{user} how would you describe this cat?", get_garnet
+      question = rand > 0.8 ? "how would you describe this cat?" : "what color is this cat?"
+      pictweet "@#{user} #{question}", get_garnet
     end
   end
 
